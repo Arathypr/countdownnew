@@ -3,24 +3,34 @@ import secondwhite from "../../assets/secondwhite.svg";
 import transnightmode from "../../assets/secondtransnightmode_.svg";
 import "./Seconds.css";
 
-function Seconds() {
+function Seconds({ countdownZero }) {
   const [rotationDegree, setRotationDegree] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      updateRotationDegree();
-    }, 1000);
+    let intervalId;
+
+    if (!countdownZero) {
+      intervalId = setInterval(() => {
+        updateRotationDegree();
+      }, 1000);
+    } else {
+      clearInterval(intervalId); // Clear the interval if countdownZero is true
+    }
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [countdownZero]);
 
   function updateRotationDegree() {
     const now = new Date();
     const seconds = now.getSeconds();
     const degreesPerSecond = 360 / 60; // 60 seconds in a minute
 
-    const newRotationDegree = (seconds * degreesPerSecond) % 360;
-    setRotationDegree(newRotationDegree);
+    if (countdownZero) {
+      setRotationDegree(0);
+    } else {
+      const newRotationDegree = (360 - seconds * degreesPerSecond) % 360;
+      setRotationDegree(newRotationDegree);
+    }
   }
 
   return (
@@ -66,7 +76,6 @@ function Seconds() {
       </div>
 
       {/* smaller screen */}
-
       <div className="countdown-row  w-full   flex md:hidden">
         <div className="slot-type h-[100%] ">
           <div className="num _INVISIBLE_ h-full " id="second">

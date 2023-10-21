@@ -9,7 +9,7 @@ import logowhite from "../../assets/logowhite.png";
 import facebook from "../../assets/facebook.png";
 import instagram from "../../assets/instagram.png";
 import linkedin from "../../assets/linkedin.png";
-import copyright from "../../assets/copyright.png";
+
 import CountDown from "../countdown/CountDown";
 import twitter from "../../assets/twitter.png";
 import "./Slide.css";
