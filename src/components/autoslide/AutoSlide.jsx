@@ -7,7 +7,7 @@ import facebook from "../../assets/facebook.png";
 import instagram from "../../assets/instagram.png";
 import linkedin from "../../assets/linkedin.png";
 
-import CountDown from "../countdown/CountDown";
+// import CountDown from "../countdown/CountDown";
 
 function AutoSlide() {
   const slides = [

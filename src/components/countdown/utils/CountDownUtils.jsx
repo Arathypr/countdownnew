@@ -2,7 +2,6 @@
 import dayjs from "dayjs";
 
 export function getRemainingTimeUntilMsTimestamp(timestampMs) {
-  console.log("getRemainingTimeUntilMsTimestamp is called");
   const timestampDayjs = dayjs(timestampMs);
   const nowDayjs = dayjs();
 

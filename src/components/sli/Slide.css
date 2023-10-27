@@ -37,3 +37,42 @@
 .social-icon {
   width: 50%;
 } */
+.page-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.slide-panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.slide {
+  scroll-snap-align: start;
+  min-width: 100%;
+}
+.icon-container a {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.icon-container a:hover {
+  opacity: 1;
+}
+
+.icon-container a:not(:hover) {
+  opacity: 0.6;
+}
+.social-icon {
+  width: 50%;
+}

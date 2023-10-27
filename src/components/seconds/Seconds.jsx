@@ -3,19 +3,45 @@ import secondwhite from "../../assets/secondwhite.svg";
 import transnightmode from "../../assets/secondtransnightmode_.svg";
 import "./Seconds.css";
 
+// function Seconds({ countdownZero }) {
+//   const [rotationDegree, setRotationDegree] = useState(0);
+
+//   useEffect(() => {
+//     const intervalId = setInterval(() => {
+//       updateRotationDegree();
+//     }, 1000);
+
+//     return () => clearInterval(intervalId);
+//   }, [countdownZero]);
+
+//   function updateRotationDegree() {
+//     const now = new Date();
+//     const seconds = now.getSeconds();
+//     const degreesPerSecond = 360 / 60; // 60 seconds in a minute
+
+//     if (countdownZero) {
+//       setRotationDegree(0);
+//     } else {
+//       const newRotationDegree = (360 - seconds * degreesPerSecond) % 360;
+//       setRotationDegree(newRotationDegree);
+//     }
+//   }
 function Seconds({ countdownZero }) {
   const [rotationDegree, setRotationDegree] = useState(0);
+  const [shouldRunAnimation, setShouldRunAnimation] = useState(true);
 
   useEffect(() => {
-    let intervalId;
+    const now = new Date();
+    const initialSeconds = now.getSeconds();
+    const degreesPerSecond = 360 / 60; // 60 seconds in a minute
 
-    if (!countdownZero) {
-      intervalId = setInterval(() => {
-        updateRotationDegree();
-      }, 1000);
-    } else {
-      clearInterval(intervalId); // Clear the interval if countdownZero is true
-    }
+    const initialRotationDegree =
+      (360 - initialSeconds * degreesPerSecond) % 360;
+    setRotationDegree(initialRotationDegree);
+
+    const intervalId = setInterval(() => {
+      updateRotationDegree();
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, [countdownZero]);
@@ -26,10 +52,16 @@ function Seconds({ countdownZero }) {
     const degreesPerSecond = 360 / 60; // 60 seconds in a minute
 
     if (countdownZero) {
-      setRotationDegree(0);
+      if (seconds === 0) {
+        setShouldRunAnimation(false);
+      } else {
+        setShouldRunAnimation(true);
+        const newRotationDegree = (360 - seconds * degreesPerSecond) % 360;
+        setRotationDegree(newRotationDegree);
+      }
     } else {
-      const newRotationDegree = (360 - seconds * degreesPerSecond) % 360;
-      setRotationDegree(newRotationDegree);
+      setShouldRunAnimation(true);
+      setRotationDegree((360 - seconds * degreesPerSecond) % 360);
     }
   }
 
@@ -76,6 +108,7 @@ function Seconds({ countdownZero }) {
       </div>
 
       {/* smaller screen */}
+
       <div className="countdown-row  w-full   flex md:hidden">
         <div className="slot-type h-[100%] ">
           <div className="num _INVISIBLE_ h-full " id="second">

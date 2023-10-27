@@ -9,7 +9,6 @@ import logowhite from "../../assets/logowhite.png";
 import facebook from "../../assets/facebook.png";
 import instagram from "../../assets/instagram.png";
 import linkedin from "../../assets/linkedin.png";
-
 import CountDown from "../countdown/CountDown";
 import twitter from "../../assets/twitter.png";
 import "./Slide.css";
@@ -44,16 +43,11 @@ function Slide() {
 
   return (
     <div className="h-[100vh] w-[100%] relative overflow-hidden">
-      {/* <img
-        src={logowhite}
-        alt="Logo"
-        className="absolute top-4 left-20 h-28 w-32 object-contain hidden sm:block"
-      />
       <img
         src={logowhite}
         alt="Logo"
-        className="absolute sm:top-4 vvsm:top-10 vvsm:left-7 vvsm:w-28 sm:left-10 sm:h-2 object-contain block sm:hidden"
-      /> */}
+        className="absolute top-10  w-28 left-20 h-16  object-contain"
+      />
       <OrientationMessage />
       <div className="absolute top-32 sm:left-20 text-white font-semibold vvsm:left-7">
         <div className="vvsm:text-[20px] ssm:text-3xl sm:text-4xl vvsm:-mt-11 vsm:-mt-10 md:text-4xl lg:text-5xl xl:text-5xl font-Montserrat sm:mt-6">
@@ -64,26 +58,11 @@ function Slide() {
           Prepare for an adventure like no other.
         </div>
       </div>
-      <div className="absolute inset-0 flex justify-center items-center text-white">
+      <div className="absolute inset-0 flex justify-center items-center text-white ">
         <CountDown countdownTimestampMs={1643673600000} />
       </div>
-
       {/*social media */}
       <div>
-        {/* <div
-          className="flex absolute bottom-[90px] ssm:left-10 sm:left-20 vvsm:left-8 sm:mb-[-25px]"
-          style={{ alignItems: "center" }}
-        >
-          <a href="https://in.linkedin.com/company/zesdrotechnologies">
-            <img src={linkedin} alt="LinkedIn" className="mr-5" />
-          </a>
-          <a href="https://www.facebook.com/">
-            <img src={facebook} alt="Facebook" className="mr-5" />
-          </a>
-          <a href="https://www.instagram.com/">
-            <img src={instagram} alt="Instagram" />
-          </a>
-        </div> */}
         <div
           className="flex absolute bottom-[90px] right-10 sm:right-20 vvsm:right-8 sm:mb-[-25px]"
           style={{ alignItems: "center" }}
@@ -141,14 +120,6 @@ function Slide() {
             />
           </a>
         </div>
-
-        {/* <div className="absolute bottom-11 vvsm:left-8 ssm:left-10 sm:left-20 sm:mb-[-25px] flex items-center">
-          <img src={copyright} alt="" className="mr-2" />
-          <div className="text-white font-Montserrat vvsm:text-xs ssm:text-sm sm:text-lg">
-            <span style={{ fontWeight: "normal" }}>zesdro Technologies.</span>{" "}
-            <span style={{ fontWeight: "bold" }}>All Rights Reserved.</span>
-          </div>
-        </div> */}
       </div>
       <div className="page-container h-screen">
         <div className="content w-screen h-screen">
