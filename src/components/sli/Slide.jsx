@@ -46,7 +46,7 @@ function Slide() {
       <img
         src={logowhite}
         alt="Logo"
-        className="absolute top-10  w-28 left-20 h-16  object-contain"
+        className="absolute top-10  md:w-28 md:left-14 md:h-16  vvsm:w-16 vvsm:ml-7 vvsm:h-5   object-contain"
       />
       <OrientationMessage />
       <div className="absolute top-32 sm:left-20 text-white font-semibold vvsm:left-7">
